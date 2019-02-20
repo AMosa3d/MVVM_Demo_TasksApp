@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#70000000"
+    tools:context=".AddTaskActivity"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rounded_card"
+        app:layout_constraintWidth_percent="0.75">
+
+        <EditText
+            android:id="@+id/title_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_hint_string"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/description_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_description_string"
+            android:inputType="textMultiLine"
+            app:layout_constraintTop_toBottomOf="@id/title_editText" />
+
+        <com.example.abdel.mvvm_demo_tasksapp.NumberPickerCustomUI
+            android:id="@+id/priority_numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:label="@string/priority_string"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_editText"
+            app:maxValue="10"
+            app:minValue="1" />
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_btn_string"
+            app:layout_constraintEnd_toStartOf="@id/cancel_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/priority_numberPicker" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/cancel_btn_string"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/add_btn"
+            app:layout_constraintTop_toBottomOf="@id/priority_numberPicker" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
