@@ -1,4 +1,4 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.Tasks;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -16,16 +16,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.abdel.mvvm_demo_tasksapp.R;
+
 import java.util.List;
 
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.ADDED_TASK_RESPONSE;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.ADD_TASK_REQUEST;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.CANCELED_TASK_RESPONSE;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.DATE_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.DESCRIPTION_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.PRIORITY_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.TASK_PRIORITY_DEFAULT_VALUE;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.TITLE_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADDED_TASK_RESPONSE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADD_TASK_REQUEST;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.CANCELED_TASK_RESPONSE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DATE_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DESCRIPTION_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.PRIORITY_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.TASK_PRIORITY_DEFAULT_VALUE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.TITLE_EXTRA_STRING;
 
 public class TasksFragment extends Fragment {
 

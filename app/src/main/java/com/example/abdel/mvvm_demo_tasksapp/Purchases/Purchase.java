@@ -1,12 +1,14 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.Purchases;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = Purchases.TABLE_NAME)
-public class Purchases {
+import com.example.abdel.mvvm_demo_tasksapp.database.Model;
+
+@Entity(tableName = Purchase.TABLE_NAME)
+public class Purchase extends Model {
 
     @Ignore
     public static final String TABLE_NAME = "buys_table";
@@ -23,7 +25,7 @@ public class Purchases {
     @ColumnInfo(name = "currency")
     private String currency;
 
-    public Purchases(String title, int price, String currency) {
+    public Purchase(String title, int price, String currency) {
         this.title = title;
         this.price = price;
         this.currency = currency;

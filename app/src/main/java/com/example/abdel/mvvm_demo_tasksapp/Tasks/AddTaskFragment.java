@@ -1,4 +1,4 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.Tasks;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +13,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.abdel.mvvm_demo_tasksapp.CustomViews.NumberPickerCustomUI;
+import com.example.abdel.mvvm_demo_tasksapp.R;
+
 import java.util.Date;
 
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.ADDED_TASK_RESPONSE;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.CANCELED_TASK_RESPONSE;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.DATE_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.DESCRIPTION_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.PRIORITY_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Constants.TITLE_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADDED_TASK_RESPONSE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.CANCELED_TASK_RESPONSE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DATE_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DESCRIPTION_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.PRIORITY_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.TITLE_EXTRA_STRING;
 
 public class AddTaskFragment extends Fragment {
 

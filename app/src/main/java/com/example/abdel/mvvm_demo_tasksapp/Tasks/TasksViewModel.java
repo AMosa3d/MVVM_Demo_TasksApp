@@ -1,20 +1,22 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.Tasks;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
+import com.example.abdel.mvvm_demo_tasksapp.database.DatabaseRepo;
+
 import java.util.List;
 
 public class TasksViewModel extends AndroidViewModel {
 
-    private TasksRepo repo;
+    private DatabaseRepo repo;
     private LiveData<List<Task>> tasksLiveData;
 
     public TasksViewModel(@NonNull Application application) {
         super(application);
-        repo = new TasksRepo(application);
+        repo = new DatabaseRepo(application);
         tasksLiveData = repo.getTaskLiveData();
     }
 

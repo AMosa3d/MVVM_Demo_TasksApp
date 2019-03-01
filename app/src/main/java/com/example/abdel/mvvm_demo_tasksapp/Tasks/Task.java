@@ -1,12 +1,14 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.Tasks;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.example.abdel.mvvm_demo_tasksapp.database.Model;
+
 @Entity(tableName = Task.TABLE_NAME)
-public class Task {
+public class Task extends Model {
 
     @Ignore
     public static final String TABLE_NAME = "tasks_table";

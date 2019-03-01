@@ -1,4 +1,4 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.Utils;
 
 public class Constants {
     public static final int ADD_TASK_REQUEST = 0;

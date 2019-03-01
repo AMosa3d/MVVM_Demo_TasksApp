@@ -1,4 +1,4 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.CustomViews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,6 +7,8 @@ import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+
+import com.example.abdel.mvvm_demo_tasksapp.R;
 
 public class NumberPickerCustomUI extends ConstraintLayout {
 

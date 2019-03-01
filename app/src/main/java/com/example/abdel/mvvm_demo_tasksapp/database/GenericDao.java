@@ -1,4 +1,4 @@
-package com.example.abdel.mvvm_demo_tasksapp;
+package com.example.abdel.mvvm_demo_tasksapp.database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
