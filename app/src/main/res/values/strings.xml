@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">MVVM_Demo_TasksApp</string>
     <string name="title_hint_string">Title</string>
-    <string name="title_description_string">Description</string>
+    <string name="description_hint_string">Description</string>
+    <string name="price_hint_string">Price</string>
     <string name="priority_string">Priority : </string>
     <string name="add_btn_string">Add</string>
     <string name="cancel_btn_string">Cancel</string>

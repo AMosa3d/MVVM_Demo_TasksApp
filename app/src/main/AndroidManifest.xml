@@ -16,9 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Tasks.AddTaskActivity"
-            android:theme="@style/TransparentAddTaskTheme"
-            ></activity>
+        <activity
+            android:name=".Tasks.AddTaskActivity"
+            android:theme="@style/TransparentAddTaskTheme" />
+        <activity android:name=".Purchases.AddPurchaseActivity"
+            android:theme="@style/TransparentAddTaskTheme"/>
     </application>
 
 </manifest>

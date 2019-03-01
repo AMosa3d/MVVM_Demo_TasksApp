@@ -8,14 +8,12 @@ import com.example.abdel.mvvm_demo_tasksapp.R;
 
 public class AddTaskActivity extends AppCompatActivity {
 
-    private AddTaskFragment addTaskFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
-        addTaskFragment = (AddTaskFragment) getSupportFragmentManager().findFragmentById(R.id.add_task_fragment_container);
+        AddTaskFragment addTaskFragment = (AddTaskFragment) getSupportFragmentManager().findFragmentById(R.id.add_task_fragment_container);
         if(addTaskFragment == null)
         {
             addTaskFragment = AddTaskFragment.createNewInstance();
