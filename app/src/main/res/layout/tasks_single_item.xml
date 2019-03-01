@@ -18,12 +18,24 @@
             android:id="@+id/task_title_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/task_text_margin"
+            android:layout_marginStart="@dimen/task_text_margin"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/text_title_size"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:text="Title" />
+
+        <TextView
+            android:id="@+id/task_date_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/task_text_margin"
+            android:textColor="@color/colorDate"
+            android:textSize="@dimen/text_date_size"
+            app:layout_constraintLeft_toRightOf="@id/task_title_textView"
+            app:layout_constraintBottom_toBottomOf="@id/task_title_textView"
+            android:layout_marginBottom="@dimen/task_date_margin"
+            tools:text="Date" />
 
         <TextView
             android:id="@+id/task_description_textView"

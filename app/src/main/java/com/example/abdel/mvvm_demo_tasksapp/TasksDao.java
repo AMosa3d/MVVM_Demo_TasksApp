@@ -2,28 +2,16 @@ package com.example.abdel.mvvm_demo_tasksapp;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Update;
 
 import java.util.List;
 
 @Dao
-public interface TasksDao {
+public abstract class TasksDao extends GenericDao<Task> {
 
-    @Insert
-    void insert(Task task);
+    @Query("Delete from " + Task.TABLE_NAME)
+    abstract void clearTasks();
 
-    @Delete
-    void delete(Task task);
-
-    @Update
-    void update(Task task);
-
-    @Query("Delete from tasks_table")
-    void clearTasks();
-
-    @Query("Select * from tasks_table Order By priority Desc")
-    LiveData<List<Task>> selectTasks();
+    @Query("Select * from " + Task.TABLE_NAME + " Order By priority Desc")
+    abstract LiveData<List<Task>> selectTasks();
 }

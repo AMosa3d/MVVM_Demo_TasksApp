@@ -9,4 +9,5 @@ public class Constants {
     public static final String TITLE_EXTRA_STRING = "title_extra";
     public static final String DESCRIPTION_EXTRA_STRING = "description_extra";
     public static final String PRIORITY_EXTRA_STRING = "priority_extra";
+    public static final String DATE_EXTRA_STRING = "date_extra";
 }

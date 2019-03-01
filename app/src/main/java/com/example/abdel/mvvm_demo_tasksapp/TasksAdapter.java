@@ -33,7 +33,8 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
         holder.bind(
                 currentTask.getTitle(),
                 currentTask.getDescription(),
-                String.valueOf(currentTask.getPriority())
+                String.valueOf(currentTask.getPriority()),
+                currentTask.getDate()
         );
     }
 
@@ -51,7 +52,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
     protected class TasksViewHolder extends RecyclerView.ViewHolder
     {
-        TextView titleTextView, descriptionTextView, priorityTextView;
+        TextView titleTextView, descriptionTextView, priorityTextView, dateTextView;
 
         public TasksViewHolder(View itemView) {
             super(itemView);
@@ -59,13 +60,16 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
             titleTextView = itemView.findViewById(R.id.task_title_textView);
             descriptionTextView = itemView.findViewById(R.id.task_description_textView);
             priorityTextView = itemView.findViewById(R.id.task_priority_textView);
+            dateTextView = itemView.findViewById(R.id.task_date_textView);
         }
 
-        void bind(String title, String description, String priority)
+        void bind(String title, String description, String priority, String date)
         {
             titleTextView.setText(title);
             descriptionTextView.setText(description);
             priorityTextView.setText(priority);
+            if (date != null && !date.equals(""))
+                dateTextView.setText("- " + date);
         }
     }
 }

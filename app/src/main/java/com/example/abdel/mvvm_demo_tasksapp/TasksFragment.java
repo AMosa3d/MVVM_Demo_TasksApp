@@ -21,6 +21,7 @@ import java.util.List;
 import static com.example.abdel.mvvm_demo_tasksapp.Constants.ADDED_TASK_RESPONSE;
 import static com.example.abdel.mvvm_demo_tasksapp.Constants.ADD_TASK_REQUEST;
 import static com.example.abdel.mvvm_demo_tasksapp.Constants.CANCELED_TASK_RESPONSE;
+import static com.example.abdel.mvvm_demo_tasksapp.Constants.DATE_EXTRA_STRING;
 import static com.example.abdel.mvvm_demo_tasksapp.Constants.DESCRIPTION_EXTRA_STRING;
 import static com.example.abdel.mvvm_demo_tasksapp.Constants.PRIORITY_EXTRA_STRING;
 import static com.example.abdel.mvvm_demo_tasksapp.Constants.TASK_PRIORITY_DEFAULT_VALUE;
@@ -72,15 +73,6 @@ public class TasksFragment extends Fragment {
             }
         });
 
-        addFAB.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                TasksDatabase database = TasksDatabase.getInstance(getActivity());
-                new AddAsyncTask(database.tasksDao()).execute();
-                return true;
-            }
-        });
-
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -113,7 +105,8 @@ public class TasksFragment extends Fragment {
                     new Task(
                             data.getStringExtra(TITLE_EXTRA_STRING),
                             data.getStringExtra(DESCRIPTION_EXTRA_STRING),
-                            data.getIntExtra(PRIORITY_EXTRA_STRING, TASK_PRIORITY_DEFAULT_VALUE)
+                            data.getIntExtra(PRIORITY_EXTRA_STRING, TASK_PRIORITY_DEFAULT_VALUE),
+                            data.getStringExtra(DATE_EXTRA_STRING)
                     )
             );
         }
