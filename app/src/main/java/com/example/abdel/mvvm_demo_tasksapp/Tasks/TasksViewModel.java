@@ -29,10 +29,12 @@ public class TasksViewModel extends AndroidViewModel {
     {
         repo.delete(task);
     }
+
     public void update(Task task)
     {
         repo.update(task);
     }
+
     public void clearTasks()
     {
         repo.clearTasks();

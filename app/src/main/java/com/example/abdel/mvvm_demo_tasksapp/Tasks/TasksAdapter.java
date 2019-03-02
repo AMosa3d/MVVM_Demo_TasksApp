@@ -40,16 +40,16 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
         );
     }
 
-    public Task getTask(int index)
-    {
-        return index > -1 && index < tasksList.size() ? tasksList.get(index) : null;
-    }
-
     @Override
     public int getItemCount() {
         if (tasksList == null)
             return 0;
         return tasksList.size();
+    }
+
+    public Task getTask(int index)
+    {
+        return index > -1 && index < tasksList.size() ? tasksList.get(index) : null;
     }
 
     protected class TasksViewHolder extends RecyclerView.ViewHolder

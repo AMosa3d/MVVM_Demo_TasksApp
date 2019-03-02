@@ -79,7 +79,9 @@ public class TasksFragment extends Fragment {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                tasksViewModel.delete(tasksAdapter.getTask(viewHolder.getAdapterPosition()));
+                Task currentTask = tasksAdapter.getTask(viewHolder.getAdapterPosition());
+                if (currentTask != null)
+                    tasksViewModel.delete(currentTask);
             }
         }).attachToRecyclerView(tasksRecyclerView);
 

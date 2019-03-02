@@ -46,6 +46,11 @@ public class PurchasesAdapter extends RecyclerView.Adapter<PurchasesAdapter.Purc
         return purchasesList.size();
     }
 
+    public Purchase getPurchase(int index)
+    {
+        return index > -1 && index < purchasesList.size() ? purchasesList.get(index) : null;
+    }
+
     protected class PurchasesViewHolder extends RecyclerView.ViewHolder
     {
         TextView titleTextView, priceTextView, currencyTextView;

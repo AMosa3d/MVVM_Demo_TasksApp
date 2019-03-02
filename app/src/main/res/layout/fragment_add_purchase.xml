@@ -50,7 +50,7 @@
             android:text="@string/add_btn_string"
             app:layout_constraintEnd_toStartOf="@id/cancel_btn"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/currency_price_editText" />
+            app:layout_constraintTop_toBottomOf="@id/purchase_currency_spinner" />
 
         <Button
             android:id="@+id/cancel_btn"
@@ -60,7 +60,7 @@
             android:text="@string/cancel_btn_string"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/add_btn"
-            app:layout_constraintTop_toBottomOf="@id/currency_price_editText" />
+            app:layout_constraintTop_toBottomOf="@id/purchase_currency_spinner" />
 
     </android.support.constraint.ConstraintLayout>
 

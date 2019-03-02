@@ -18,17 +18,15 @@ import android.widget.Toast;
 
 import com.example.abdel.mvvm_demo_tasksapp.R;
 import com.example.abdel.mvvm_demo_tasksapp.Tasks.AddTaskActivity;
-import com.example.abdel.mvvm_demo_tasksapp.Tasks.Task;
 
 import java.util.List;
 
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADDED_PURCHASE_RESPONSE;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADD_PURCHASE_REQUEST;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.CANCELED_PURCHASE_RESPONSE;
-import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DATE_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DESCRIPTION_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.PRIORITY_EXTRA_STRING;
-import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.TASK_PRIORITY_DEFAULT_VALUE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.CURRENCY_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.PRICE_EXTRA_STRING;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.PURCHASE_PRICE_DEFAULT_VALUE;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.TITLE_EXTRA_STRING;
 
 public class PurchaseFragment extends Fragment {
@@ -71,7 +69,7 @@ public class PurchaseFragment extends Fragment {
             }
         });
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback() {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
@@ -79,7 +77,9 @@ public class PurchaseFragment extends Fragment {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                purchasesViewModel.delete(purchasesAdapter.getPurchase(viewHolder.getAdapterPosition()));
+                Purchase currentPurchase = purchasesAdapter.getPurchase(viewHolder.getAdapterPosition());
+                if(currentPurchase != null)
+                    purchasesViewModel.delete(currentPurchase);
             }
         }).attachToRecyclerView(purchasesRecyclerView);
 
@@ -95,11 +95,10 @@ public class PurchaseFragment extends Fragment {
             Toast.makeText(getContext(), getString(R.string.operation_purchase_add_successful), Toast.LENGTH_LONG).show();
 
             purchasesViewModel.insert(
-                    new Task(
+                    new Purchase(
                             data.getStringExtra(TITLE_EXTRA_STRING),
-                            data.getStringExtra(DESCRIPTION_EXTRA_STRING),
-                            data.getIntExtra(PRIORITY_EXTRA_STRING, TASK_PRIORITY_DEFAULT_VALUE),
-                            data.getStringExtra(DATE_EXTRA_STRING)
+                            data.getIntExtra(PRICE_EXTRA_STRING, PURCHASE_PRICE_DEFAULT_VALUE),
+                            data.getStringExtra(CURRENCY_EXTRA_STRING)
                     )
             );
         }
