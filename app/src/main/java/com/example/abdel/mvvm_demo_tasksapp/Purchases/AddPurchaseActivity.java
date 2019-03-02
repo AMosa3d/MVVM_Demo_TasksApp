@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.abdel.mvvm_demo_tasksapp.R;
-import com.example.abdel.mvvm_demo_tasksapp.Tasks.AddTaskFragment;
 
 public class AddPurchaseActivity extends AppCompatActivity {
 
@@ -17,9 +16,9 @@ public class AddPurchaseActivity extends AppCompatActivity {
         AddPurchaseFragment addPurchaseFragment = (AddPurchaseFragment) getSupportFragmentManager().findFragmentById(R.id.add_purchase_fragment_container);
         if(addPurchaseFragment == null)
         {
-            addPurchaseFragment = AddTaskFragment.createNewInstance();
+            addPurchaseFragment = AddPurchaseFragment.createNewInstance();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.add_task_fragment_container, addPurchaseFragment);
+            transaction.add(R.id.add_purchase_fragment_container, addPurchaseFragment);
             transaction.commit();
         }
     }

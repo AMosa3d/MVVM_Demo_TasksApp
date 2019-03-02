@@ -19,7 +19,7 @@
         app:layout_constraintWidth_percent="0.75">
 
         <EditText
-            android:id="@+id/task_title_editText"
+            android:id="@+id/purchase_title_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/title_hint_string"
@@ -30,17 +30,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/elements_margin"
-            android:hint="@string/title_hint_string"
+            android:hint="@string/price_hint_string"
             android:inputType="textMultiLine"
-            app:layout_constraintTop_toBottomOf="@id/task_title_editText" />
+            app:layout_constraintTop_toBottomOf="@id/purchase_title_editText" />
 
         <Spinner
-            android:id="@+id/currency_price_editText"
+            android:id="@+id/purchase_currency_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/elements_margin"
             android:entries="@array/currencies"
-            android:hint="@string/price_hint_string"
             app:layout_constraintTop_toBottomOf="@id/purchase_price_editText" />
 
         <Button

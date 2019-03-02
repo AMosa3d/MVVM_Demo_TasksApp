@@ -1,4 +1,4 @@
-package com.example.abdel.mvvm_demo_tasksapp.Tasks;
+package com.example.abdel.mvvm_demo_tasksapp.Purchases;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -17,49 +17,49 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.abdel.mvvm_demo_tasksapp.R;
+import com.example.abdel.mvvm_demo_tasksapp.Tasks.AddTaskActivity;
+import com.example.abdel.mvvm_demo_tasksapp.Tasks.Task;
 
 import java.util.List;
 
-import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADDED_TASK_RESPONSE;
-import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADD_TASK_REQUEST;
-import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.CANCELED_TASK_RESPONSE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADDED_PURCHASE_RESPONSE;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.ADD_PURCHASE_REQUEST;
+import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.CANCELED_PURCHASE_RESPONSE;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DATE_EXTRA_STRING;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.DESCRIPTION_EXTRA_STRING;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.PRIORITY_EXTRA_STRING;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.TASK_PRIORITY_DEFAULT_VALUE;
 import static com.example.abdel.mvvm_demo_tasksapp.Utils.Constants.TITLE_EXTRA_STRING;
 
-public class TasksFragment extends Fragment {
+public class PurchaseFragment extends Fragment {
 
-    private TasksViewModel tasksViewModel;
-    private RecyclerView tasksRecyclerView;
+    private PurchasesViewModel purchasesViewModel;
+    private RecyclerView purchasesRecyclerView;
     private FloatingActionButton addFAB;
-    private TasksAdapter tasksAdapter;
+    private PurchasesAdapter purchasesAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tasksAdapter = new TasksAdapter();
+        purchasesAdapter = new PurchasesAdapter();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_tasks, container, false);
+        View view = inflater.inflate(R.layout.fragment_purchases, container, false);
 
         addFAB = view.findViewById(R.id.add_FAB);
-        tasksRecyclerView = view.findViewById(R.id.tasks_recyclerView);
+        purchasesRecyclerView = view.findViewById(R.id.purchases_recyclerView);
 
-        tasksRecyclerView.setAdapter(tasksAdapter);
-        tasksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        purchasesRecyclerView.setAdapter(purchasesAdapter);
+        purchasesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
-
-        tasksViewModel = ViewModelProviders.of(this).get(TasksViewModel.class);
-        tasksViewModel.getTasksLiveData().observe(this, new Observer<List<Task>>() {
+        purchasesViewModel = ViewModelProviders.of(this).get(PurchasesViewModel.class);
+        purchasesViewModel.getPurchasesLiveData().observe(this, new Observer<List<Purchase>>(){
             @Override
-            public void onChanged(@Nullable List<Task> tasks) {
-                tasksAdapter.setTasksList(tasks);
+            public void onChanged(@Nullable List<Purchase> purchases) {
+                purchasesAdapter.setPurchasesList(purchases);
             }
         });
 
@@ -67,11 +67,11 @@ public class TasksFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddTaskActivity.class);
-                startActivityForResult(intent, ADD_TASK_REQUEST);
+                startActivityForResult(intent, ADD_PURCHASE_REQUEST);
             }
         });
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback() {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
@@ -79,27 +79,22 @@ public class TasksFragment extends Fragment {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                tasksViewModel.delete(tasksAdapter.getTask(viewHolder.getAdapterPosition()));
+                purchasesViewModel.delete(purchasesAdapter.getPurchase(viewHolder.getAdapterPosition()));
             }
-        }).attachToRecyclerView(tasksRecyclerView);
+        }).attachToRecyclerView(purchasesRecyclerView);
 
         return view;
-    }
-
-    public static TasksFragment createNewInstance()
-    {
-        return new TasksFragment();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == ADD_TASK_REQUEST && resultCode == ADDED_TASK_RESPONSE)
+        if (requestCode == ADD_PURCHASE_REQUEST && resultCode == ADDED_PURCHASE_RESPONSE)
         {
-            Toast.makeText(getContext(), getString(R.string.operation_task_add_successful), Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), getString(R.string.operation_purchase_add_successful), Toast.LENGTH_LONG).show();
 
-            tasksViewModel.insert(
+            purchasesViewModel.insert(
                     new Task(
                             data.getStringExtra(TITLE_EXTRA_STRING),
                             data.getStringExtra(DESCRIPTION_EXTRA_STRING),
@@ -108,7 +103,11 @@ public class TasksFragment extends Fragment {
                     )
             );
         }
-        else if (requestCode == ADD_TASK_REQUEST && resultCode == CANCELED_TASK_RESPONSE)
+        else if (requestCode == ADD_PURCHASE_REQUEST && resultCode == CANCELED_PURCHASE_RESPONSE)
             Toast.makeText(getContext(), getString(R.string.operation_canceled), Toast.LENGTH_LONG).show();
+    }
+
+    public static PurchaseFragment createNewInstance(){
+        return new PurchaseFragment();
     }
 }

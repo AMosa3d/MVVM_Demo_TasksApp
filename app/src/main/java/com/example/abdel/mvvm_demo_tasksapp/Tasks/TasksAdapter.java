@@ -13,9 +13,9 @@ import java.util.List;
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHolder> {
 
-    List<Task> taskList;
+    private List<Task> taskList;
 
-    public void setTaskList(List<Task> taskList) {
+    public void setTasksList(List<Task> taskList) {
         this.taskList = taskList;
         notifyDataSetChanged();
     }
@@ -40,7 +40,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
         );
     }
 
-    Task getTask(int index)
+    public Task getTask(int index)
     {
         return index > -1 && index < taskList.size() ? taskList.get(index) : null;
     }

@@ -6,4 +6,8 @@
     <string name="priority_string">Priority : </string>
     <string name="add_btn_string">Add</string>
     <string name="cancel_btn_string">Cancel</string>
+
+    <string name="operation_canceled">Operation Canceled :(</string>
+    <string name="operation_task_add_successful">Operation Canceled :(</string>
+    <string name="operation_purchase_add_successful">Purchase Added Successfully WOHOO :D</string>
 </resources>
