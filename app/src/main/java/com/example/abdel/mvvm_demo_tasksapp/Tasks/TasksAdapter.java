@@ -13,10 +13,10 @@ import java.util.List;
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHolder> {
 
-    private List<Task> taskList;
+    private List<Task> tasksList;
 
     public void setTasksList(List<Task> taskList) {
-        this.taskList = taskList;
+        this.tasksList = taskList;
         notifyDataSetChanged();
     }
 
@@ -31,7 +31,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
     @Override
     public void onBindViewHolder(@NonNull TasksViewHolder holder, int position) {
-        Task currentTask = taskList.get(position);
+        Task currentTask = tasksList.get(position);
         holder.bind(
                 currentTask.getTitle(),
                 currentTask.getDescription(),
@@ -42,14 +42,14 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
     public Task getTask(int index)
     {
-        return index > -1 && index < taskList.size() ? taskList.get(index) : null;
+        return index > -1 && index < tasksList.size() ? tasksList.get(index) : null;
     }
 
     @Override
     public int getItemCount() {
-        if (taskList == null)
+        if (tasksList == null)
             return 0;
-        return taskList.size();
+        return tasksList.size();
     }
 
     protected class TasksViewHolder extends RecyclerView.ViewHolder

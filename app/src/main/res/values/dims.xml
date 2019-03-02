@@ -2,6 +2,7 @@
 <resources>
     <dimen name="cardView_margin">10dp</dimen>
     <dimen name="task_text_margin">14dp</dimen>
+    <dimen name="purchase_price_text_margin">8dp</dimen>
     <dimen name="elements_margin">10dp</dimen>
     <dimen name="FAB_margin">32dp</dimen>
     <dimen name="task_date_margin">4sp</dimen>

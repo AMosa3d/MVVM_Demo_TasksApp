@@ -29,7 +29,19 @@
             android:id="@+id/purchase_price_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/task_text_margin"
+            android:layout_marginEnd="@dimen/purchase_price_text_margin"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_title_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/purchase_currency_textView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1000" />
+
+        <TextView
+            android:id="@+id/purchase_currency_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/task_text_margin"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/text_title_size"
@@ -37,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="1" />
+            tools:text="EGP" />
 
     </android.support.constraint.ConstraintLayout>
 
