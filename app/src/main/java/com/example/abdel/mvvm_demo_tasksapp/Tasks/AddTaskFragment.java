@@ -69,7 +69,7 @@ public class AddTaskFragment extends Fragment {
                 intent.putExtra(TITLE_EXTRA_STRING, titleEditText.getText().toString());
                 intent.putExtra(DESCRIPTION_EXTRA_STRING, descriptionEditText.getText().toString());
                 intent.putExtra(PRIORITY_EXTRA_STRING, priorityNumberPicker.getValue());
-                intent.putExtra(DATE_EXTRA_STRING, DateFormat.format("dd/mm/yyyy", new Date()));
+                intent.putExtra(DATE_EXTRA_STRING, DateFormat.format("dd/MM/yyyy", new Date()));
 
                 getActivity().setResult(ADDED_TASK_RESPONSE, intent);
                 getActivity().finish();
